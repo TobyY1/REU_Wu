@@ -1,3 +1,5 @@
+NOTES ABOUT OUR CHANGES 
+
 We Consider two things when labeling these countries:
 1. The relative value of rGDP per capita against other countries.
 2. The growth trends of countries. 
@@ -25,15 +27,14 @@ There is a rGDP growth trend, but it doesn’t fall into the previous categories
 Type 0: Odd patterns:
 Not enough data to give a trend, or there isn’t a clear trend.
 
-Flag: = 0 if we are confident in the grouping we gave /n
-if > 0 then the value indicates the average of the two groups it could be.
+Flag = 0: if we are confident in the grouping we gave
+
+Flag > 0: The value indicates the average of the two groups it could be.
 EXAMPLE: flag = 1.5 means we placed it as a 1 (or 2) but we acknowledge that it could be a 2 (or 1)
 
 FmrUSSR: = 1 if the country was a part of the USSR, these countries tend to have interesting patterns in the early years of their data. These countries declared independence starting March 1990 to December 1991.
 
 FmrYugo: = 1 if the country was a part of Yugoslavia, began disbanding in 1991, finished in 2000’s.
-
-
 
 
 COUNTRIES PREVIOUSLY PART OF THE SOVIET UNION (ENDED 1991)
