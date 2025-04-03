@@ -25,7 +25,7 @@ There is a rGDP growth trend, but it doesn’t fall into the previous categories
 Type 0: Odd patterns:
 Not enough data to give a trend, or there isn’t a clear trend.
 
-Flag: = 0 if we are confident in the grouping we gave
+Flag: = 0 if we are confident in the grouping we gave /n
 if > 0 then the value indicates the average of the two groups it could be.
 EXAMPLE: flag = 1.5 means we placed it as a 1 (or 2) but we acknowledge that it could be a 2 (or 1)
 
