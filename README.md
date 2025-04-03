@@ -1,4 +1,4 @@
-NOTES ABOUT OUR CHANGES 
+NOTES ABOUT OUR ADDITIONS 
 
 We Consider two things when labeling these countries:
 1. The relative value of rGDP per capita against other countries.
@@ -26,6 +26,9 @@ There is a rGDP growth trend, but it doesn’t fall into the previous categories
 
 Type 0: Odd patterns:
 Not enough data to give a trend, or there isn’t a clear trend.
+
+
+OTHER VARIABLES WE ADDED
 
 Flag = 0: if we are confident in the grouping we gave
 
