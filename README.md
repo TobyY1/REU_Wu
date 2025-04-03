@@ -2,27 +2,28 @@ We Consider two things when labeling these countries:
 1. The relative value of rGDP per capita against other countries.
 2. The growth trends of countries. 
 
-Type 1 Early Developed Economies
-Consistent, steady growth rate. High rGDP from the start.
+Type 1 Early Developed Economies:
+Consistent, steady growth rate, high rGDP per capita from the start.
 
-Type 2 Fully Caught up Economies
+Type 2 Fully Caught up Economies:
 Begin noticeably lower than type 1's, exponential growth rate at some point to “catch up” to Type 1’s.
 
-Type 3 Middle Income Trap Economies
+Type 3 Middle Income Trap Economies:
 Consistent, steady growth rate (Like type 1), but noticeably lower nominal values at all points.
-Informally: Same growth trend as Type 1, but there is a noticeable gap between the two. 
 
-Type 4 Emerging Economies 
+Type 4 Emerging Economies: 
 
-Type 5 Economies in a Poverty Trap
-Little signs of growth, nominally very low real GDP
+Type 5 Economies in a Poverty Trap:
+Little signs of growth, nominally very low real GDP per capita.
 
-Type 6 Regressing Economies
-Formally: There is a rGDP growth trend, but it doesn’t fall into the previous 5 categories. 
-Informally: These start extremely high for the data set, but regress down.d
+Type 6 Former USSR and Yugoslavia Economies:
+These countries tend to have interesting dips in their rGDP per capita early on, it’s unclear as to why.
 
-Type 0: Odd patterns
-not enough data to give a trend, or there isn’t a clear trend from the data. 
+Type 7 Regressing Economies:
+There is a rGDP growth trend, but it doesn’t fall into the previous categories. 
+
+Type 0: Odd patterns:
+Not enough data to give a trend, or there isn’t a clear trend.
 
 Flag: = 0 if we are confident in the grouping we gave
 if > 0 then the value indicates the average of the two groups it could be.
