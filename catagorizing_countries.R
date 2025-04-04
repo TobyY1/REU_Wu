@@ -1,6 +1,8 @@
 ### For taking in Penn World Table data
 ## Can be used for graphing log rgdp per capita of countries against
-## against each other, and for assigning "types" described elsewhere
+## against each other, and for assigning "types" described in README
+
+## NOTE: You NEED to set a working directory below thi imported packages
 
 library(haven) # for importing Stata data
 library(tidyverse)
@@ -8,9 +10,9 @@ library(readxl)
 library(dplyr)
 library(ggplot2)
 
-# Personal working directories
-setwd("/Users/tobyyanchunas/Desktop/REU_Wu")
-# setwd("C:\Users\Bucke\Desktop\REU_Wu")
+# NEED TO SET YOUR WORKING DIRECTORY
+setwd()
+
 
 # Penn world table data saved in "d"
 d <- read_stata("pwt1001.dta")
