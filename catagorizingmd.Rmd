@@ -15,8 +15,8 @@ library(tidyverse)
 library(readxl)
 library(dplyr)
 library(ggplot2)
-knitr::opts_knit$set(root.dir="/Users/tobyyanchunas/Desktop/REU_Wu")
-
+knitr::opts_knit$set(root.dir=file.choose())
+# CHANGE PATH
 ```
 
 ## "Graph 4 countries" code
