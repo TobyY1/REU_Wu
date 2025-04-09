@@ -1,3 +1,12 @@
+NOTES ABOUT THE PROCESS
+
+I graphed all the trends then manually chose types. The 'catagorizingmd.Rmd' file can be used to see the graphs.
+
+The 'catagorizing_countries.R' file is where I made the changes.
+
+'summary_statistics.Rmd' is 
+
+
 NOTES ABOUT OUR ADDITIONS 
 
 We Consider two things when labeling these countries:
