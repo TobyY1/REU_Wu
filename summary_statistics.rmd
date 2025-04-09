@@ -13,7 +13,8 @@ library(readxl)
 library(dplyr)
 library(ggplot2)
 
-setwd("/Users/tobyyanchunas/Desktop/REU_Wu")
+# ADD YOUR PATH
+setwd(file.choose())
 d <- read_stata("pwt1001_typed.dta")
 
 
