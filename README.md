@@ -4,7 +4,7 @@ I graphed all the trends then manually chose types. The 'catagorizingmd.Rmd' fil
 
 The 'catagorizing_countries.R' file is where I made the changes.
 
-'summary_statistics.Rmd' is 
+'SummaryStatistics.Rmd' is a short presentation finalizing the results, it requires the data set that has already been 'typed'
 
 
 NOTES ABOUT OUR ADDITIONS 
