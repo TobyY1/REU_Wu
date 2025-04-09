@@ -1,1 +1,88 @@
+---
+title: "Summary Statistics for Catagorizing Countries"
+output: ioslides_presentation
+author: Tobias Yanchunas
+date: "2025-04-08"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(haven) # for importing Stata data
+library(tidyverse)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+setwd("/Users/tobyyanchunas/Desktop/REU_Wu")
+d <- read_stata("pwt1001_typed.dta")
+
+
+```
+
+## Notes
+
+- This relies on having the Penn World Table data (Table 10.01) already typed
+  - Run through the "catagorizing_countries.R" file
+  - We used the version published Jan 23, 2023
+  - It was asked to reference: Feenstra, Robert C., Robert Inklaar and Marcel P. Timmer (2015), "The Next Generation of the Penn World Table" American Economic Review, 105(10), 3150-3182, available for download at www.ggdc.net/pwt
+  
+  
+## Histogram of Types
+
+```{r, echo = F, warning =F}
+d2 <- d %>% filter(year == 2000) #Arbitrary year just to get one entry per country
+#type0s = nrow(d2 %>% filter(type == 0))
+#type1s = nrow(d2 %>% filter(type == 1))
+#type2s = nrow(d2 %>% filter(type == 2))
+#type3s = nrow(d2 %>% filter(type == 3))
+#type4s = nrow(d2 %>% filter(type == 4))
+#type5s = nrow(d2 %>% filter(type == 5))
+#type6s = nrow(d2 %>% filter(type == 6))
+#type7s = nrow(d2 %>% filter(type == 7))
+
+ggplot(data = d2, aes(x = type))+
+  geom_histogram(binwidth = 1, color = 'grey', fill = 'blue') + 
+  ylab('Number of Countries') + 
+  annotate("label", x = .5, y = 39, 
+  label = "Type Zero's: 4
+Type One's: 22
+Type Two's: 18
+Type Three's: 53
+Type Four's: 12
+Type Five's: 44
+Type Sixes: 21
+Type Seven's: 9") + 
+  ggtitle("Histogram of Countries by Type") + 
+  theme(axis.text.x = element_text(face="bold", color="black", size=10),
+        axis.text.y = element_text(face="bold", color="black", size=10)) + scale_x_continuous(name = 'Type', breaks = c(0,1,2,3,4,5,6,7))
+
+```
+
+* 183 Total Countries
+
+## Average of each Type
+```{r, warning = FALSE, echo = F, message = F}
+d3 <- d %>% drop_na(lrgdppc)
+d3 <- d3 %>% group_by(type, year) %>% summarize(avg_lrgdppc = mean(lrgdppc))
+
+ggplot(data = d3, aes(x=year, y = avg_lrgdppc, color = as.factor(type)))+
+  geom_line(size = 1)+
+  scale_color_manual(values=c('blue', "black", 'forestgreen','#d62728',
+                              '#ff7f0e','#8c564b','#e377c2','#7f7f7f'))+
+  ylim(5,13.2) + xlim(1950, 2020) + ggtitle("Log rGDP per capita", subtitle='
+  Average Values of each Year per Type') +
+  ylab('Average log rGDP pc') + 
+  labs(color = "Types") + 
+  geom_hline(yintercept=8,linetype=2, alpha = .3) + 
+  geom_hline(yintercept = 10, linetype = 2, alpha = .3) 
+
+#1f77b4 blue
+#2ca02c green
+#ff7f0e
+#9467bd
+```
+
+* Each point was constructed as the average of each year within each type.
+
+
 
