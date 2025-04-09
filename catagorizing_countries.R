@@ -1,8 +1,6 @@
 ### For taking in Penn World Table data
 ## Can be used for graphing log rgdp per capita of countries against
-## against each other, and for assigning "types" described in README
-
-## NOTE: You NEED to set a working directory below thi imported packages
+## against each other, and for assigning "types" described elsewhere
 
 library(haven) # for importing Stata data
 library(tidyverse)
@@ -10,9 +8,8 @@ library(readxl)
 library(dplyr)
 library(ggplot2)
 
-# NEED TO SET YOUR WORKING DIRECTORY
+# CHANGE THIS PATH
 setwd(file.choose())
-
 
 # Penn world table data saved in "d"
 d <- read_stata("pwt1001.dta")
@@ -74,6 +71,17 @@ give_flag <- function(data,code,input_type){
   while (i <= nrow(data)){
     if (toString(data[i,'countrycode']) == code){
       data[i,'flag'] = input_type
+    }
+    i = i + 1
+  }
+  return(data)
+}
+
+give_interesting <- function(data,code,input_type){
+  i = 1
+  while (i <= nrow(data)){
+    if (toString(data[i,'countrycode']) == code){
+      data[i,'interesting'] = input_type
     }
     i = i + 1
   }
@@ -152,7 +160,7 @@ d_small <- give_type(d_small, "VNM", 4) # Vietnam
 d_small <- give_type(d_small, "KEN", 5) # Kenya
 d_small <- give_type(d_small, "UGA", 5) # Uganda
 d_small <- give_type(d_small, "HTI", 5) # Haiti
-d_small <- give_type(d_small, "NPL", 5) # Nepal
+d_small <- give_type(d_small, "NPL", 5) # Nepal * flag
 d_small <- give_type(d_small, "ETH", 5) # Ethiopia
 d_small <- give_type(d_small, "GMB", 5) # Gambia
 
@@ -279,7 +287,7 @@ d_small <- give_type(d_small, "KAZ", 6) # Kazakhstan * USSR
 
 #Slide 25
 d_small <- give_type(d_small, "KGZ", 6) # Kyrgyzstan * USSR
-d_small <- give_type(d_small, "KHM", 5) # Cambodia
+d_small <- give_type(d_small, "KHM", 5) # Cambodia * flag
 d_small <- give_type(d_small, "KNA", 3) # Saint Kitts and Nevis
 
 #Slide 26
@@ -380,7 +388,7 @@ d_small <- give_type(d_small, "SWZ", 3) # Eswatini * flag
 #Slide 45
 d_small <- give_type(d_small, "SXM", 0) # Sint Maarten
 d_small <- give_type(d_small, "SYC", 3) # Seychelles * flag
-d_small <- give_type(d_small, "SYR", 5) # Syrian Arab Republic
+d_small <- give_type(d_small, "SYR", 5) # Syrian Arab Republic * flag
 
 #Slide 46
 d_small <- give_type(d_small, "TCA", 7) # Turks and Caicos Islands
@@ -441,20 +449,29 @@ d_small <- give_fmrYugo(d_small, "MKD", 1) # Macedonia
 d_small <- give_fmrYugo(d_small, "MNE", 1) # Montenegro
 d_small <- give_fmrYugo(d_small, "SRB", 1) # Serbia
 
+
 # Flags
+d_small <- give_flag(d_small, "ARG", 2.5) # Argentina * maybe 2
+d_small <- give_flag(d_small, "BRA", 2.5) # Brazil * maybe 2
+d_small <- give_flag(d_small, "LBN", 2.5) # Lebanon * maybe 2
+d_small <- give_flag(d_small, "MDV", 2.5) # Moldova * maybe 2
+d_small <- give_flag(d_small, "MYS", 2.5) # Malaysia * maybe 2
+
+d_small <- give_flag(d_small, "BGD", 4.5) # Bangladesh * maybe 4
+d_small <- give_flag(d_small, "ETH", 4.5) # Ethiopia * maybe 4
+d_small <- give_flag(d_small, "KHM", 4.5) # Cambodia * maybe 4
+d_small <- give_flag(d_small, "NPL", 4.5) # Nepal * maybe 4
+d_small <- give_flag(d_small, "SYR", 4.5) # Syrian Arab Republic * maybe 4
+d_small <- give_flag(d_small, "YEM", 4.5) # Yemen * maybe 4
 
 
+# Interesting Cases
+d_small <- give_interesting(d_small, "GNQ", 1) # Equatorial Guinea * interesting
+d_small <- give_interesting(d_small, "MAC", 1) # China, Macao SAR * interesting
+d_small <- give_interesting(d_small, "VEN", 1) # Venezuela * interesting
+d_small <- give_interesting(d_small, "TTO", 1) # Trinidad and Tobogo * interesting
+d_small <- give_interesting(d_small, "BHR", 1) # Bahrain * interesting
 
-d_small <- give_flag(d_small, "CYM", 1) # Cayman Islands * flag, maybe 6
-d_small <- give_flag(d_small, "GNQ", 1) # Equatorial Guinea * flag as good case
-d_small <- give_flag(d_small, "IRN", 1) # Iran * maybe 0 interesting case
-d_small <- give_flag(d_small, "IRQ", 1) # Iraq * flag
-d_small <- give_flag(d_small, "LBN", 1) # Lebanon * flag
-d_small <- give_flag(d_small, "MAC", 1) # China, Macao SAR * flag
-d_small <- give_flag(d_small, "NGA", 1) # Nigeria * flag
-d_small <- give_flag(d_small, "OMN", 1) # Oman * flag
-d_small <- give_flag(d_small, "SVK", 1) # Slovakia * flag
-d_small <- give_flag(d_small, "SWZ", 1) # Eswatini * flag
 
 
 
