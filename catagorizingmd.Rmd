@@ -1,0 +1,344 @@
+---
+title: "PWT Growth Graphs"
+author: Tobias Yanchunas
+output: 
+  ioslides_presentation: 
+    transition: 0
+date: "Feb 27, 2025"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(haven) # for importing Stata data
+library(tidyverse)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+knitr::opts_knit$set(root.dir="/Users/tobyyanchunas/Desktop/REU_Wu")
+
+```
+
+## "Graph 4 countries" code
+```{r, echo = TRUE}
+d <- read_stata("pwt1001.dta")
+d <- d %>% mutate(lrgdppc = log(rgdpo/pop))
+
+### Graph 4 countries function
+graph4 <- function(c1, c2, c3, c4){
+  d1 <- d %>% filter(countrycode==c1 | countrycode==c2 | countrycode==c3 | countrycode == c4)
+  ggplot(d1, aes(x= year, y = lrgdppc, colour = countrycode)) +
+    geom_line(linewidth = 1) + 
+    geom_hline(yintercept=8,linetype=2) + 
+    geom_hline(yintercept = 10, linetype = 2) +
+    ylim(5,13.2) + xlim(1950, 2020) + ggtitle("Log rGDP per capita") +
+    scale_color_manual(values=c('red', "blue", 'black', 'darkgrey'))
+}
+```
+
+
+## ABW and AGO and AIA - 1
+```{r, echo = F, warning = FALSE}
+graph4("USA", "ABW", "AGO", "AIA")
+
+```
+
+## ALB and ARE and ARM - 2
+```{r, echo = F, warning = F}
+graph4("USA", "ALB", "ARE", "ARM")
+
+```
+
+## ATG and AUS and AUT - 3
+```{r, echo = F, warning = F}
+graph4("USA", "ATG", "AUS", "AUT")
+
+```
+
+## AZE and BDI and BEL - 4
+```{r, echo = F, warning = F}
+graph4("USA", "AZE", "BDI", "BEL")
+
+```
+
+## BEN and BFA and BGD - 5
+```{r, echo = F, warning = F}
+graph4("USA", "BEN", "BFA", "BGD")
+
+```
+
+## BGR and BHR and BHS - 6
+```{r, echo = F, warning = F}
+graph4("USA", "BGR", "BHR", "BHS")
+
+```
+
+## BIH and BLR and BLZ - 7
+```{r, echo = F, warning = F}
+graph4("USA", "BIH", "BLR", "BLZ")
+
+```
+
+## BMU and BOL and BRB - 8
+```{r, echo = F, warning = F}
+graph4("USA", "BMU", "BOL", "BRB")
+
+```
+
+## BRN and BTN and BWA - 9
+```{r, echo = F, warning = F}
+graph4("USA", "BRN", "BTN", "BWA")
+
+```
+
+## CAF and CHE and CHL - 10
+```{r, echo = F, warning = F}
+graph4("USA", "CAF", "CHE", "CHL")
+
+```
+
+## CIV and CMR and COD - 11
+```{r, echo = F, warning = F}
+graph4("USA", "CIV", "CMR", "COD")
+
+```
+
+## COG and COM and CPV - 12
+```{r, echo = F, warning = F}
+graph4("USA", "COG", "COM", "CPV")
+
+```
+
+## CRI and CUW and CYM - 13
+```{r, echo = F, warning = F}
+graph4("USA", "CRI", "CUW", "CYM")
+
+```
+
+## CYP and CZE and DJI - 14
+```{r, echo = F, warning = F}
+graph4("USA", "CYP", "CZE", "DJI")
+
+```
+
+## DMA and DNK and DOM - 15
+```{r, echo = F, warning = F}
+graph4("USA", "DMA", "DNK", "DOM")
+
+```
+
+## DZA and ECU and EST - 16
+```{r, echo = F, warning = F}
+graph4("USA", "DZA", "ECU", "EST")
+
+```
+
+## FIN and FJI and GAB - 17
+```{r, echo = F, warning = F}
+graph4("USA", "FIN", "FJI", "GAB")
+
+```
+
+## GEO and GHA and GIN - 18
+```{r, echo = F, warning = F}
+graph4("USA", "GEO", "GHA", "GIN")
+
+```
+
+## GNB and GNQ and GRC - 19
+```{r, echo = F, warning = F}
+graph4("USA", "GNB", "GNQ", "GRC")
+
+```
+
+## GRD and GTM and GUY - 20
+```{r, echo = F, warning = F}
+graph4("USA", "GRD", "GTM", "GUY")
+
+```
+
+## HND and HRV and HUN - 21
+```{r, echo = F, warning = F}
+graph4("USA", "HND", "HRV", "HUN")
+
+```
+
+## IDN and IRL and IRN - 22
+```{r, echo = F, warning = F}
+graph4("USA", "IDN", "IRL", "IRN")
+
+```
+
+## IRQ and ISL and ISR - 23
+```{r, echo = F, warning = F}
+graph4("USA", "IRQ", "ISL", "ISR")
+
+```
+
+## JAM and JOR and KAZ - 24
+```{r, echo = F, warning = F}
+graph4("USA", "JAM", "JOR", "KAZ")
+
+```
+
+## KGZ and KHM and KNA - 25
+```{r, echo = F, warning = F}
+graph4("USA", "KGZ", "KHM", "KNA")
+
+```
+
+## KWT and LAO and LBN - 26
+```{r, echo = F, warning = F}
+graph4("USA", "KWT", "LAO", "LBN")
+
+```
+
+## LBR and LCA and LKA - 27
+```{r, echo = F, warning = F}
+graph4("USA", "LBR", "LCA", "LKA")
+
+```
+
+## LSO and LTU and LUX - 28
+```{r, echo = F, warning = F}
+graph4("USA", "LSO", "LTU", "LUX")
+
+```
+
+## LVA and MAC and MAR - 29
+```{r, echo = F, warning = F}
+graph4("USA", "LVA", "MAC", "MAR")
+
+```
+
+## MDA and MDG and MDV - 30
+```{r, echo = F, warning = F}
+graph4("USA", "MDA", "MDG", "MDV")
+
+```
+
+## MKD and MLI and MLT - 31
+```{r, echo = F, warning = F}
+graph4("USA", "MKD", "MLI", "MLT")
+
+```
+
+## MMR and MNE and MNG - 32
+```{r, echo = F, warning = F}
+graph4("USA", "MMR", "MNE", "MNG")
+
+```
+
+## MOZ and MRT and MSR - 33
+```{r, echo = F, warning = F}
+graph4("USA", "MOZ", "MRT", "MSR")
+
+```
+
+## MUS and MWI and MYS - 34
+```{r, echo = F, warning = F}
+graph4("USA", "MUS", "MWI", "MYS")
+
+```
+
+## NAM and NER and NGA - 35
+```{r, echo = F, warning = F}
+graph4("USA", "NAM", "NER", "NGA")
+
+```
+
+## NIC and NLD and NPL - 36
+```{r, echo = F, warning = F}
+graph4("USA", "NIC", "NLD", "NPL")
+
+```
+
+## NZL and OMN and PAK - 37
+```{r, echo = F, warning = F}
+graph4("USA", "NZL", "OMN", "PAK")
+
+```
+
+## PAN and PER and PHL - 38
+```{r, echo = F, warning = F}
+graph4("USA", "PAN", "PER", "PHL")
+
+```
+
+## POL and PRT and PRY - 39
+```{r, echo = F, warning = F}
+graph4("USA", "POL", "PRT", "PRY")
+
+```
+
+## PSE and QAT and ROU - 40
+```{r, echo = F, warning = F}
+graph4("USA", "PSE", "QAT", "ROU")
+
+```
+
+## RWA and SAU and SDN - 41
+```{r, echo = F, warning = F}
+graph4("USA", "RWA", "SAU", "SDN")
+
+```
+
+## SEN and SLE and SLV - 42
+```{r, echo = F, warning = F}
+graph4("USA", "SEN", "SLE", "SLV")
+
+```
+
+## SRB and STP and SUR - 43
+```{r, echo = F, warning = F}
+graph4("USA", "SRB", "STP", "SUR")
+
+```
+
+## SVK and SVN and SWZ - 44
+```{r, echo = F, warning = F}
+graph4("USA", "SVK", "SVN", "SWZ")
+
+```
+
+## SXM and SYC and SYR - 45
+```{r, echo = F, warning = F}
+graph4("USA", "SXM", "SYC", "SYR")
+
+```
+
+## TCA and TCD and TGO - 46
+```{r, echo = F, warning = F}
+graph4("USA", "TCA", "TCD", "TGO")
+
+```
+
+## TJK and TKM and TTO - 47
+```{r, echo = F, warning = F}
+graph4("USA", "TJK", "TKM", "TTO")
+
+```
+
+## TUN and TZA and UGA - 48
+```{r, echo = F, warning = F}
+graph4("USA", "TUN", "TZA", "UGA")
+
+```
+
+## UKR and URY and UZB - 49
+```{r, echo = F, warning = F}
+graph4("USA", "UKR", "URY", "UZB")
+
+```
+
+## VCT and VEN and VGB - 50
+```{r, echo = F, warning = F}
+graph4("USA", "VCT", "VEN", "VGB")
+
+```
+
+## YEM and ZMB and ZWE - 51
+```{r, echo = F, warning = F}
+graph4("USA", "YEM", "ZMB", "ZWE")
+
+```
