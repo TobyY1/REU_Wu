@@ -11,7 +11,7 @@ library(dplyr)
 library(ggplot2)
 
 # NEED TO SET YOUR WORKING DIRECTORY
-setwd()
+setwd(file.choose())
 
 
 # Penn world table data saved in "d"
