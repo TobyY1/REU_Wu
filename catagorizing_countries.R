@@ -480,6 +480,8 @@ d_small <- give_interesting(d_small, "BHR", 1) # Bahrain * interesting
 # Merge Format
 final_data <- merge(d,d_small, by = 'countrycode')
 write_dta(final_data, "pwt1001_typed.dta")
+write.csv(final_data, file = "pwt1001_typed.csv")
+
 
 
 
